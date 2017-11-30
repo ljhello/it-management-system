@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+   <form id="formid">
+      <input type="text" placeholder="请输入用户名" name="tc_name"> 
+      <input type="text" placeholder="请输入密码" name="tc_pass">
+      <input type="submit" value="登录"> 
+
+   </form> 
+   
+<script src="./jquery-3.2.0.js"></script>
+<script src="./jquery.cookie.js"></script>
+   <script>
+    
+    $("#formid").on("submit",function(){
+
+        var formdata=$(this).serialize();
+
+        $.ajax({
+            url:"/api/login",
+            type:"get",
+            data:formdata,
+            success:function(data){
+              console.log(data);
+            }
+        })
+       return false;
+    })
+
+   
+   
+   
+   
+   </script>
+</body>
+</html>

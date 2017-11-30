@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="send">存储cookie对象</button>  <br>
+    <button id="getobj">取对象</button>
+    <button id="getdata">取值</button>
+    <script>
+     function getCookie(key){
+        var strCookie = document.cookie;
+        if(!strCookie)     return null;
+         console.log(strCookie);
+        var arrCookies=strCookie.split('; ');
+
+        var r = /(.+)=(.+)/;
+        var tmp={};
+        for(var i=0;i<arrCookies.length;i++){
+            var cookie=arrCookies[i];
+            var m = r.exec( cookie );
+            tmp[ m[ 1 ] ] = decodeURI( m[ 2 ] );
+        }
+
+        return key ? tmp[ key ] : tmp;
+     }
+
+    
+     var send=document.getElementById("send");
+     var getobj=document.getElementById("getobj");
+     var getdata=document.getElementById('getdata');
+
+     send.onclick=function(){
+        // document.cookie='itcasts='+encodeURI("传智播客");
+        document.cookie='username='+encodeURI('张三');
+        document.cookie='it='+encodeURI('lisi');
+       
+     }
+     getobj.onclick=function(){
+        console.log(getCookie())
+     }
+
+     getdata.onclick=function(){
+        console.log(getCookie('username'));
+       console.log(getCookie('it'));
+
+     }
+    </script>
+</body>
+</html>

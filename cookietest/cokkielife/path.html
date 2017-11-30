@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">send</button>
+   <script>
+     console.log(document.cookie);
+     var btn=document.getElementById('btn');
+     btn.onclick=function(){
+        //  默认情况下只允许在设置cookie的文件所在的文件夹与该文件夹的子文件夹中的文件可以访问存储的cookie,cookie还提供了_path特性，该属性设置网站的文件夹目录，指的是该目录下的文件都可以访问cookie
+         document.cookie='username=lisi;path=/';
+     }
+   
+   
+   
+   </script> 
+</body>
+</html>
